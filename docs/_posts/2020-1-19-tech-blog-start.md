@@ -4,7 +4,7 @@ slug: tech-blog-start
 tag:
   - others
 auther: nasum
-lang: ja-JP
+lang: ja
 ---
 
 # 技術ブログはじめました。
