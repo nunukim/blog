@@ -1,0 +1,24 @@
+
+<template>
+  <div id="global-layout">
+    <header>
+      <router-link to="/">Home</router-link>·
+      <router-link to="/tag/">Tag</router-link>
+    </header>
+    <DefaultGlobalLayout />
+    <footer>
+      <p>Copyright 2020 nasum</p>
+    </footer>
+  </div>
+</template>
+
+<script>
+import GlobalLayout from "@app/components/GlobalLayout.vue";
+
+export default {
+  components: { DefaultGlobalLayout: GlobalLayout },
+  created() {
+    console.log();
+  }
+};
+</script>
