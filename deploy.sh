@@ -9,9 +9,9 @@ yarn run build
 # navigate into the build output directory
 cd docs/.vuepress/dist
 
-# if you are deploying to a custom domain
-# echo 'www.example.com' > CNAME
+echo 'nasum.dev' > CNAME
 
+git init
 git add -A
 git commit -m 'deploy'
 
