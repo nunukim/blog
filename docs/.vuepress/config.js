@@ -2,9 +2,9 @@ module.exports = {
   title: "nasum`s tech memo",
   description: "A blog that collects technical notes written by nasum",
   locales: {
-    '/': {
-      lang: 'ja'
-    },
+    "/": {
+      lang: "ja"
+    }
   },
   plugins: [
     [
@@ -21,15 +21,20 @@ module.exports = {
           {
             id: "tag",
             keys: ["tag", "tags"],
-            path: "/tag/",
+            path: "/tags/",
             layout: "Tag",
             frontmatter: { title: "Tag" },
-            itemlayout: "Tag",
             pagination: {
               perPagePosts: 10
             }
           }
-        ]
+        ],
+        sitemap: {
+          hostname: 'https://nasum.dev'
+        },
+        feed: {
+          canonical_base: 'https://nasum.dev'
+        }
       }
     ]
   ]

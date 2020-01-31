@@ -7,7 +7,7 @@
         <p>
           <ul>
             <li v-for="tag in page.frontmatter.tag">
-              <router-link :to="`tag/${page.frontmatter.tag}/`">
+              <router-link :to="`/tag/${tag}/`">
                 {{ tag }}
               </router-link>
             </li>

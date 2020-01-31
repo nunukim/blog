@@ -11,6 +11,12 @@
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
+    "textlint": "^11.6.1",
+    "textlint-rule-max-ten": "^2.0.3",
+    "textlint-rule-preset-japanese": "^4.0.4",
     "vuepress": "^1.2.0"
+  },
+  "dependencies": {
+    "prism-themes": "^1.3.0"
   }
 }
