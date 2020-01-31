@@ -1,9 +1,8 @@
-
 <template>
   <div id="global-layout">
     <header>
       <router-link to="/">Home</router-link>·
-      <router-link to="/tag/">Tag</router-link>
+      <router-link to="/tags/">Tag</router-link>
     </header>
     <DefaultGlobalLayout />
     <footer>
