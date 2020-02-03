@@ -1,5 +1,5 @@
 module.exports = {
-  title: "nasum`s tech memo",
+  title: "nasum's tech memo",
   description: "A blog that collects technical notes written by nasum",
   locales: {
     "/": {
