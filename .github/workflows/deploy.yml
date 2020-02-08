@@ -1,0 +1,32 @@
+name: deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - name: package install
+        run: |
+          yarn install
+      - name: build
+        run: |
+          yarn run build
+      - name: commit file
+        run: |
+          cd docs/.vuepress/dist
+          echo ${{ secrets.DOMAIN }} > CNAME
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.NAME }}
+          git init
+          git add -A
+          git commit -m 'deploy'
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN}}
+          force: true
+          directory: ./docs/.vuepress/dist
+          repository: ${{ secrets.REPO_NAME }}
