@@ -40,7 +40,7 @@ module.exports = {
     [
       '@vuepress/google-analytics',
       {
-        'ga': ''
+        'ga': process.env.GA
       }
     ]
   ]
