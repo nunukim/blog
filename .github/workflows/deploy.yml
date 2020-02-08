@@ -6,6 +6,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+      GA: ${{ secrets.GA }}
     steps:
       - uses: actions/checkout@master
       - name: package install
