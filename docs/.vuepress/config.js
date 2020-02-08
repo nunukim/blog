@@ -36,6 +36,12 @@ module.exports = {
           canonical_base: 'https://nasum.dev'
         }
       }
+    ],
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': ''
+      }
     ]
   ]
 };
