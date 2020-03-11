@@ -28,6 +28,7 @@ body,
 #app {
   color: #222;
   height: 100%;
+  font-family: "M PLUS 1p";
 }
 .l-wrapper {
   display: flex;

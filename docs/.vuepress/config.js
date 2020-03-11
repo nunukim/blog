@@ -10,6 +10,13 @@ module.exports = {
     [
       "meta",
       { name: "google-site-verification", content: process.env.G_SEARCH }
+    ],
+    [
+      "link",
+      {
+        href: "https://fonts.googleapis.com/css?family=M+PLUS+1p",
+        rel: "stylesheet"
+      }
     ]
   ],
   plugins: [
