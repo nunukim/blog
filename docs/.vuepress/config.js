@@ -6,6 +6,12 @@ module.exports = {
       lang: "ja"
     }
   },
+  head: [
+    [
+      "meta",
+      { name: "google-site-verification", content: process.env.G_SEARCH }
+    ]
+  ],
   plugins: [
     [
       "@vuepress/blog",
@@ -30,17 +36,17 @@ module.exports = {
           }
         ],
         sitemap: {
-          hostname: 'https://nasum.dev'
+          hostname: "https://nasum.dev"
         },
         feed: {
-          canonical_base: 'https://nasum.dev'
+          canonical_base: "https://nasum.dev"
         }
       }
     ],
     [
-      '@vuepress/google-analytics',
+      "@vuepress/google-analytics",
       {
-        'ga': process.env.GA
+        ga: process.env.GA
       }
     ]
   ]
