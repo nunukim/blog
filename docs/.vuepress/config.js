@@ -9,7 +9,10 @@ module.exports = {
   head: [
     [
       "meta",
-      { name: "google-site-verification", content: process.env.G_SEARCH }
+      {
+        name: "google-site-verification",
+        content: "DfsGAciGojAGIrGTmJ_Wb0HW-Lnx2VOIdXHwds24qS4"
+      }
     ],
     [
       "link",
