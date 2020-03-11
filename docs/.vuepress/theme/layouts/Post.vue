@@ -6,8 +6,9 @@
 <style lang="scss">
 .c-article-main {
   max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
-  padding: 15px 0;
+  padding: 15px 5px;
   h1 {
     margin-bottom: 16px;
   }
