@@ -49,7 +49,12 @@ module.exports = {
           hostname: "https://nasum.dev"
         },
         feed: {
-          canonical_base: "https://nasum.dev"
+          canonical_base: "https://nasum.dev",
+          feeds: {
+            atom1: {
+              enable: false
+            }
+          }
         }
       }
     ],
