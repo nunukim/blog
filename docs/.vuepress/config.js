@@ -22,6 +22,9 @@ module.exports = {
       }
     ]
   ],
+  markdown: {
+    plugins: ["markdown-it-footnote"]
+  },
   plugins: [
     [
       "@vuepress/blog",
@@ -30,7 +33,8 @@ module.exports = {
           {
             id: "Index",
             dirname: "_posts",
-            path: "/"
+            path: "/",
+            itemPermalink: "/:year/:month/:day/:slug"
           }
         ],
         frontmatters: [

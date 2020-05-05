@@ -30,6 +30,8 @@
   img {
     max-width: 100%;
     width: auto;
+    border: 1px solid #282a36;
+    border-radius: 0.3rem;
   }
 }
 </style>
