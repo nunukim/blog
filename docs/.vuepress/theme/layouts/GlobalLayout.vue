@@ -18,7 +18,7 @@ export default {
   components: { DefaultGlobalLayout: GlobalLayout },
   created() {
     console.log();
-  }
+  },
 };
 </script>
 
@@ -29,6 +29,7 @@ body,
   color: #222;
   height: 100%;
   font-family: "M PLUS 1p";
+  background: #f5f5f5;
 }
 .l-wrapper {
   display: flex;
