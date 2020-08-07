@@ -11,6 +11,8 @@ lang: ja
 
 # Raspberry Pi 上に Kubernetes クラスタを作る
 
+自分の所属している会社、[LAPRAS](https://lapras.com)で夏の自由研究リレーを行っているので今回はそれに便乗して最近やってるネタを書いてみます。
+
 多くの人がもうすでにやっているネタではあるのですが、Raspberry Pi 上に Kubernetes クラスタを構築してみました。大抵の人は Raspbian（現 Raspberry Pi OS）を使って構築しているみたいでしたが、自分はあんまりやってる人を見かけなかった Arch Linux での構築にチャレンジしてみました。
 
 ## ハードウェアの準備
@@ -208,19 +210,63 @@ as root:
 
   kubeadm join 192.168.1.2:6443 --token xx --discovery-token-ca-cert-hash sha256:xx
 
-& mkdir -p $HOME/.kube
+$ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-& sudo chown $(id -u):$(id -g) $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-次にコマンド実行時に
+master nodeのセットアップがこれで完了します。
 
-## flannnel のインストール
+次にワーカーnodeを次のコマンドで登録していきます。
+
+```cmd
+$ kubeadm join 192.168.1.2:6443 --token xx --discovery-token-ca-cert-hash sha256:xx
+```
+
+今回はワーカーノードが２つなので２回繰り返します。
+
+この状態でmasterノードでkubectlを実行してみます。
+
+```cmd
+$ kubectl get nodes
+NAME            STATUS      ROLES    AGE     VERSION
+k8s-master-01   NotReady    master   13m     v1.18.5
+k8s-node-01     NotReady    <none>   2m15s   v1.18.5
+k8s-node-02     NotReady    <none>   100s    v1.18.5
+```
+
+いったんすべてのノードを確認することができます。
+
+ただこの状態だとまだNotReadyで正しく構築できていません。kube-dnsがまだ動いていないのが原因です。kube-dnsを正しく動かすためにネットワークの設定を行います。
+
+## flannel のインストール
+
+Kubernetesのネットワーク周りで今回はflannelを使います。flannelは普通にkubectlを使用してデプロイを行います。
+
+```
+$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
+これで問題なければ、kube-dnsが正しく動き各nodeがReadyになります
+
+```cmd
+$ kubectl get nodes
+NAME            STATUS   ROLES    AGE     VERSION
+k8s-master-01   Ready    master   13m     v1.18.5
+k8s-node-01     Ready    <none>   2m15s   v1.18.5
+k8s-node-02     Ready    <none>   100s    v1.18.5
+```
+
+これでKubernetesの環境が整いました。あとはアプリケーション作ってデプロイしたりするだけです。
 
 ## まとめ
 
+ざっとRaspberry PiでKubernetesクラスタを作成する手順を書いていきました。ちょっといろいろ端折ったりまとめ方が拙いのでそのうちリライトする予定です。
+
+とりあえず最後に言いたいこととしては、Raspberry PiでKubernetesクラスタを作るのは楽しいので暇とお金がある方はぜひ試してほしいです。
+
 ## 参考資料
 
-- https://qiita.com/go_vargo/items/29f6d832ea0a289b4778
-- https://qiita.com/hichihara/items/79ef6613026f8c13eb99
-- https://qiita.com/Aruneko/items/89b97aae755cc098f4c0
+- [Raspberry PiでおうちKubernetes構築【論理編】](https://qiita.com/go_vargo/items/29f6d832ea0a289b4778)
+- [kubeadm で kubernetes v1.8 + Flannel をインストール](https://qiita.com/hichihara/items/79ef6613026f8c13eb99)
+- [Arch Linux に kubeadm で開発用 Kubernetes クラスタを構築してみる](https://qiita.com/Aruneko/items/89b97aae755cc098f4c0)
