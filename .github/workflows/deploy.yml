@@ -6,15 +6,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
-    env:
-      GA: ${{ secrets.GA }},
-      G_SEARCH: ${{ secrets.G_SEARCH }},
     steps:
       - uses: actions/checkout@master
       - name: package install
         run: |
           yarn install
       - name: build
+        env:
+          GA: ${{ secrets.GA }},
+          G_SEARCH: ${{ secrets.G_SEARCH }},
         run: |
           yarn run build
       - name: commit file
