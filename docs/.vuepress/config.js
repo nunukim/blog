@@ -1,29 +1,29 @@
 module.exports = {
-  title: "nasum's tech memo",
+  title: "🍆 nasum's tech memo",
   description: "A blog that collects technical notes written by nasum",
   locales: {
     "/": {
-      lang: "ja"
-    }
+      lang: "ja",
+    },
   },
   head: [
     [
       "meta",
       {
         name: "google-site-verification",
-        content: "DfsGAciGojAGIrGTmJ_Wb0HW-Lnx2VOIdXHwds24qS4"
-      }
+        content: "DfsGAciGojAGIrGTmJ_Wb0HW-Lnx2VOIdXHwds24qS4",
+      },
     ],
     [
       "link",
       {
         href: "https://fonts.googleapis.com/css?family=M+PLUS+1p",
-        rel: "stylesheet"
-      }
-    ]
+        rel: "stylesheet",
+      },
+    ],
   ],
   markdown: {
-    plugins: ["markdown-it-footnote"]
+    plugins: ["markdown-it-footnote"],
   },
   plugins: [
     [
@@ -34,8 +34,8 @@ module.exports = {
             id: "Index",
             dirname: "_posts",
             path: "/",
-            itemPermalink: "/:year/:month/:day/:slug"
-          }
+            itemPermalink: "/:year/:month/:day/:slug",
+          },
         ],
         frontmatters: [
           {
@@ -45,28 +45,28 @@ module.exports = {
             layout: "Tag",
             frontmatter: { title: "Tag" },
             pagination: {
-              perPagePosts: 10
-            }
-          }
+              perPagePosts: 10,
+            },
+          },
         ],
         sitemap: {
-          hostname: "https://nasum.dev"
+          hostname: "https://nasum.dev",
         },
         feed: {
           canonical_base: "https://nasum.dev",
           feeds: {
             atom1: {
-              enable: false
-            }
-          }
-        }
-      }
+              enable: false,
+            },
+          },
+        },
+      },
     ],
     [
       "@vuepress/google-analytics",
       {
-        ga: process.env.GA
-      }
-    ]
-  ]
+        ga: process.env.GA,
+      },
+    ],
+  ],
 };
