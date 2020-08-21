@@ -1,8 +1,8 @@
 <template>
   <div class="l-wrapper">
     <header class="l-header">
-      <router-link class="l-header__link" to="/">Home</router-link>·
-      <router-link class="l-header__link" to="/tags/">Tag</router-link>
+      <router-link class="l-header__link c-nav-title" to="/">🍆 nasum's tech memo</router-link>
+      <router-link class="l-header__link c-nav-link" to="/tags/">Tags</router-link>
     </header>
     <DefaultGlobalLayout />
     <footer class="l-footer">
@@ -53,6 +53,23 @@ body,
   .copyright {
     text-align: center;
     font-weight: bold;
+  }
+}
+
+.c-nav-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.c-nav-link {
+  padding: 4px;
+  border: 1px solid #d8dadb;
+  border-radius: 5px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  a {
+    color: #222;
+    text-decoration: none;
   }
 }
 </style>
