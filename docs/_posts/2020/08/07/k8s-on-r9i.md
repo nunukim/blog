@@ -215,9 +215,9 @@ $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-master nodeのセットアップがこれで完了します。
+master node のセットアップがこれで完了します。
 
-次にワーカーnodeを次のコマンドで登録していきます。
+次にワーカー node を次のコマンドで登録していきます。
 
 ```cmd
 $ kubeadm join 192.168.1.2:6443 --token xx --discovery-token-ca-cert-hash sha256:xx
@@ -225,7 +225,7 @@ $ kubeadm join 192.168.1.2:6443 --token xx --discovery-token-ca-cert-hash sha256
 
 今回はワーカーノードが２つなので２回繰り返します。
 
-この状態でmasterノードでkubectlを実行してみます。
+この状態で master ノードで kubectl を実行してみます。
 
 ```cmd
 $ kubectl get nodes
@@ -237,17 +237,17 @@ k8s-node-02     NotReady    <none>   100s    v1.18.5
 
 いったんすべてのノードを確認することができます。
 
-ただこの状態だとまだNotReadyで正しく構築できていません。kube-dnsがまだ動いていないのが原因です。kube-dnsを正しく動かすためにネットワークの設定を行います。
+ただこの状態だとまだ NotReady で正しく構築できていません。kube-dns がまだ動いていないのが原因です。kube-dns を正しく動かすためにネットワークの設定を行います。
 
 ## flannel のインストール
 
-Kubernetesのネットワーク周りで今回はflannelを使います。flannelは普通にkubectlを使用してデプロイを行います。
+Kubernetes のネットワーク周りで今回は flannel を使います。flannel は普通に kubectl を使用してデプロイを行います。
 
 ```
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
-これで問題なければ、kube-dnsが正しく動き各nodeがReadyになります
+これで問題なければ、kube-dns が正しく動き各 node が Ready になります
 
 ```cmd
 $ kubectl get nodes
@@ -257,16 +257,16 @@ k8s-node-01     Ready    <none>   2m15s   v1.18.5
 k8s-node-02     Ready    <none>   100s    v1.18.5
 ```
 
-これでKubernetesの環境が整いました。あとはアプリケーション作ってデプロイしたりするだけです。
+これで Kubernetes の環境が整いました。あとはアプリケーション作ってデプロイしたりするだけです。
 
 ## まとめ
 
-ざっとRaspberry PiでKubernetesクラスタを作成する手順を書いていきました。ちょっといろいろ端折ったりまとめ方が拙いのでそのうちリライトする予定です。
+ざっと Raspberry Pi で Kubernetes クラスタを作成する手順を書いていきました。ちょっといろいろ端折ったりまとめ方が拙いのでそのうちリライトする予定です。
 
-とりあえず最後に言いたいこととしては、Raspberry PiでKubernetesクラスタを作るのは楽しいので暇とお金がある方はぜひ試してほしいです。
+とりあえず最後に言いたいこととしては、Raspberry Pi で Kubernetes クラスタを作るのは楽しいので暇とお金がある方はぜひ試してほしいです。
 
 ## 参考資料
 
-- [Raspberry PiでおうちKubernetes構築【論理編】](https://qiita.com/go_vargo/items/29f6d832ea0a289b4778)
+- [Raspberry Pi でおうち Kubernetes 構築【論理編】](https://qiita.com/go_vargo/items/29f6d832ea0a289b4778)
 - [kubeadm で kubernetes v1.8 + Flannel をインストール](https://qiita.com/hichihara/items/79ef6613026f8c13eb99)
 - [Arch Linux に kubeadm で開発用 Kubernetes クラスタを構築してみる](https://qiita.com/Aruneko/items/89b97aae755cc098f4c0)
