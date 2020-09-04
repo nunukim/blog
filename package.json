@@ -14,7 +14,7 @@
     "@vuepress/plugin-blog": "^1.9.2",
     "@vuepress/plugin-google-analytics": "^1.5.4",
     "node-sass": "^4.13.1",
-    "sass-loader": "^10.0.1",
+    "sass-loader": "^10.0.2",
     "textlint": "^11.6.1",
     "textlint-rule-max-ten": "^2.0.4",
     "textlint-rule-preset-japanese": "^5.0.0",
