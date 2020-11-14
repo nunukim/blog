@@ -11,7 +11,7 @@
     "textlint": "textlint --fix ./docs/_posts/*.md"
   },
   "devDependencies": {
-    "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/plugin-blog": "^1.9.3",
     "@vuepress/plugin-google-analytics": "^1.7.1",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.0.3",
