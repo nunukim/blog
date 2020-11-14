@@ -14,13 +14,6 @@ module.exports = {
         content: "DfsGAciGojAGIrGTmJ_Wb0HW-Lnx2VOIdXHwds24qS4",
       },
     ],
-    [
-      "link",
-      {
-        href: "https://fonts.googleapis.com/css?family=M+PLUS+1p",
-        rel: "stylesheet",
-      },
-    ],
   ],
   markdown: {
     plugins: ["markdown-it-footnote"],
@@ -65,7 +58,7 @@ module.exports = {
     [
       "@vuepress/google-analytics",
       {
-        ga: process.env.GA,
+        ga: 'G-6YFFEG98M4',
       },
     ],
   ],

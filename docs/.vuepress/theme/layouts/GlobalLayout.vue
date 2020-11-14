@@ -28,7 +28,7 @@ body,
 #app {
   color: #222;
   height: 100%;
-  font-family: "M PLUS 1p";
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
   background: #f5f5f5;
 }
 .l-wrapper {
