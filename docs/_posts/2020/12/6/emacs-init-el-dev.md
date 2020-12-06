@@ -7,7 +7,7 @@ auther: nasum
 lang: ja
 ---
 
-# emacs.dでないところにinit.elを書く方法
+# emacs.dでないところでinit.elを育てる方法
 
 この記事は[Emacs Advent Calendar 2020](https://qiita.com/advent-calendar/2020/emacs)の6日目の記事です。
 
