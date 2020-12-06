@@ -9,6 +9,8 @@ lang: ja
 
 # emacs.dでないところにinit.elを書く方法
 
+この記事は[Emacs Advent Calendar 2020](https://qiita.com/advent-calendar/2020/emacs)の6日目の記事です。
+
 普段自分は `spacemacs` を使っているのですが、ある時なんとなく一から `emacs` の設定を育ててみたくなりました。
 
 ところが `spacemacs` は `emacs.d` に直接 `git clone` してインストールするので `emacs.d` のなかに `init.el` を新たに作るということはできません。普段仕事で `spacemacs` を使っているのでまるっと別のところにコピーというのもあまりやりたくありません。
