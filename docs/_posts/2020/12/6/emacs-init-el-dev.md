@@ -1,5 +1,5 @@
 ---
-date: "2020-12-5"
+date: "2020-12-6"
 slug: emacs-init-el-dev
 tag:
   - emacs
