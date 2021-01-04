@@ -7,27 +7,27 @@ auther: nasum
 lang: ja
 ---
 
-# emacs.dでないところでinit.elを育てる方法
+# emacs.d でないところで init.el を育てる方法
 
-この記事は[Emacs Advent Calendar 2020](https://qiita.com/advent-calendar/2020/emacs)の6日目の記事です。
+この記事は[Emacs Advent Calendar 2020](https://qiita.com/advent-calendar/2020/emacs)の 6 日目の記事です。
 
 普段自分は `spacemacs` を使っているのですが、ある時なんとなく一から `emacs` の設定を育ててみたくなりました。
 
 ところが `spacemacs` は `emacs.d` に直接 `git clone` してインストールするので `emacs.d` のなかに `init.el` を新たに作るということはできません。普段仕事で `spacemacs` を使っているのでまるっと別のところにコピーというのもあまりやりたくありません。
 
-悩んでいろいろググってみた結果StackOverflowに良さそうな記事を見つけました。
+悩んでいろいろググってみた結果 StackOverflow に良さそうな記事を見つけました。
 
 [https://emacs.stackexchange.com/a/4258](https://emacs.stackexchange.com/a/4258)
 
 この回答いわく。
 
-1. emacsの起動をエイリアスを使って特定のinit.elを使うようにする。
+1. emacs の起動をエイリアスを使って特定の init.el を使うようにする。
 
 ```zsh
 alias emacs='emacs -q --load "/path/to/init.el"'
 ```
 
-2. 新しくつくるinit.elの `user-init-file` と `user-emacs-directory` を書き換える
+2. 新しくつくる init.el の `user-init-file` と `user-emacs-directory` を書き換える
 
 ```lisp
 (setq user-init-file (or load-file-name (buffer-file-name)))
@@ -36,7 +36,7 @@ alias emacs='emacs -q --load "/path/to/init.el"'
 
 でいけるとか。
 
-`user-init-file` は init.elの絶対パスを示します。この変数を `load-file-name` か `buffer-file-name` に入っているinit.elの絶対パスで上書きます。
+`user-init-file` は init.el の絶対パスを示します。この変数を `load-file-name` か `buffer-file-name` に入っている init.el の絶対パスで上書きます。
 
 `user-emacs-directory` は `emacs` の設定ファイルが入っているディレクトリを示します。この変数を先ほどの `user-init-file` から `file-name-directory` でディレクトリのパスを取得し上書きます。
 
